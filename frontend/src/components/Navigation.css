@@ -1,0 +1,46 @@
+.navbar {
+  background-color: #06a9f4;
+  min-width: 100%;
+  position: fixed;
+  text-align: left;
+  padding: 0px;
+  top: 0;
+  min-height: 60px;
+  z-index: 999;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+}
+.my-spacer {
+  height: 95px;
+}
+
+.link-menu {
+  display: inline-block;
+  padding: 0px;
+}
+.navbar li {
+  display: inline-block;
+  line-height: 35px;
+  margin-right: 2rem;
+}
+
+.navbar li i {
+  font-size: 35px;
+  line-height: 35px;
+}
+
+.navbar a {
+  color: white;
+  transition: all 0.2s linear;
+}
+
+.navbar a:hover {
+  color: gray;
+  text-decoration: none;
+}
+.v-align {
+  display: flex;
+  padding-top: 10px;
+  align-items: center;
+
+  /* Column | row */
+}

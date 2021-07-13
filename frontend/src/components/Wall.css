@@ -1,0 +1,36 @@
+.wall {
+  overflow: hidden;
+}
+
+.login-section {
+  position: fixed;
+  z-index: 999;
+  top: 95px;
+}
+
+.post-section {
+  float: right;
+}
+#create-post .my-button {
+  font-size: 1rem;
+  color: #fffffb;
+  width: 50%;
+  border: none;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  background: linear-gradient(45deg, #0276aa, #4ec2f7, #4ec2f7, #0276aa);
+  outline: none;
+  transition: all 200ms ease-in-out;
+}
+
+#create-post .my-button:hover {
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+  transform: translateY(2px);
+  -webkit-animation: gradientBG 1.5s ease-in-out forwards;
+  animation: gradientBG 1s ease-in-out forwards;
+  cursor: pointer;
+}
+#create-post .my-button:active {
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
+  transform: translateY(4px);
+}
