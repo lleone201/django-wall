@@ -1,16 +1,22 @@
 from rest_framework import viewsets
 from .serializers import PostSerializer
 from .models import Post
-from rest_framework.generics import ListAPIView, RetrieveAPIView
+from rest_framework.generics import RetrieveUpdateDestroyAPIView, ListAPIView, CreateAPIView
+from rest_framework.mixins import UpdateModelMixin
 
 # Create your views here.
 
 
-class PostListView(ListAPIView):
+class PostListView(UpdateModelMixin, ListAPIView):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
 
 
-class PostDetailView(RetrieveAPIView):
+class PostDetailView(RetrieveUpdateDestroyAPIView):
+    queryset = Post.objects.all()
+    serializer_class = PostSerializer
+
+
+class PostCreateView(CreateAPIView):
     queryset = Post.objects.all()
     serializer_class = PostSerializer

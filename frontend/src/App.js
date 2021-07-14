@@ -1,5 +1,4 @@
 import "./App.css";
-import Wall from "./components/Wall";
 import Navigation from "./components/Navigation";
 import { Component } from "react";
 import { connect } from "react-redux";
@@ -18,7 +17,7 @@ class App extends Component {
       <div className="App">
         <Router {...this.props}>
           <Navigation {...this.props}></Navigation>
-          <BaseRouter />
+          <BaseRouter {...this.props} />
 
           {/*<Wall {...this.props}></Wall> */}
         </Router>

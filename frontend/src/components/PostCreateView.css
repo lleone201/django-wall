@@ -1,0 +1,132 @@
+.create {
+  margin-top: 2rem;
+  background-color: #313131;
+  border-radius: 5px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  display: flexbox;
+  justify-content: center;
+  padding: 2px;
+}
+.create h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+label,
+span {
+  margin-top: 1rem;
+  font-weight: 500;
+  font-family: "Fira Sans", sans-serif;
+}
+
+body,
+html,
+.App,
+#root,
+.auth-wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+.create .navbar-light {
+  background-color: #ffffff;
+  box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
+}
+
+.create .form-group {
+  width: 75%;
+  margin: auto;
+  margin-top: 1rem;
+}
+
+.create .top-gap {
+  margin-top: 2rem;
+}
+
+.create .bot-gap {
+  margin-bottom: 2rem;
+}
+.auth-wrapper {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: left;
+}
+
+.auth-inner {
+  width: 450px;
+  margin: auto;
+  background: #ffffff;
+  box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
+  padding: 40px 55px 45px 55px;
+  border-radius: 15px;
+  transition: all 0.3s;
+}
+
+.auth-wrapper .form-control:focus {
+  border-color: #167bff;
+  box-shadow: none;
+}
+
+.auth-wrapper h3 {
+  text-align: center;
+  margin: 0;
+  line-height: 1;
+  padding-bottom: 20px;
+}
+
+.custom-control-label {
+  font-weight: 400;
+}
+
+.my-button {
+  font-size: 1rem;
+  color: #fffffb;
+  width: auto;
+  margin: 10px;
+  border: none;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  background: linear-gradient(45deg, #0276aa, #4ec2f7, #4ec2f7, #0276aa);
+  outline: none;
+  transition: all 200ms ease-in-out;
+}
+
+.my-button:hover {
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+  transform: translateY(2px);
+  -webkit-animation: gradientBG 1.5s ease-in-out forwards;
+  animation: gradientBG 1s ease-in-out forwards;
+  cursor: pointer;
+}
+.my-button:active {
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
+  transform: translateY(4px);
+}
+
+.my-success {
+  color: #4caf50;
+  border-color: #4caf50;
+  text-align: center;
+  width: 30%;
+  margin-right: auto;
+  margin-left: auto;
+  background-color: transparent;
+  transition: all 0.5s linear;
+  display: none;
+  opacity: 0;
+}
+
+.my-fail {
+  color: #db3c30;
+  border-color: #db3c30;
+  text-align: center;
+  width: 30%;
+  margin-right: auto;
+  margin-left: auto;
+  background-color: transparent;
+  transition: all 0.5s linear;
+  display: none;
+  opacity: 0;
+}

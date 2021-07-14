@@ -16,13 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
-from wall.views import PostListView, PostDetailView
+from wall.views import PostListView, PostDetailView, PostCreateView
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/posts/', PostListView.as_view()),
     path('posts/api/posts/<pk>', PostDetailView.as_view()),
+    path('api/create/', PostCreateView.as_view()),
     # path('api/', include(router.urls)),
     path('rest-auth/', include('rest_auth.urls')),
     path('rest-auth/registration/', include('rest_auth.registration.urls')),

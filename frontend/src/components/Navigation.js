@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import * as actions from "../store/actions/auth";
 import { connect } from "react-redux";
 import "./Navigation.css";
+import { Link } from "react-router-dom";
 
 class Navigation extends Component {
   handleLogout = () => {
@@ -41,7 +42,7 @@ class Navigation extends Component {
                     </a>
                   </li>
                   <li>
-                    <a href="/">Create Post</a>
+                    <Link to="/create">Create Post</Link>
                   </li>
                   <li>
                     <a href="/" onClick={this.handleLogout}>

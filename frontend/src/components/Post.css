@@ -13,6 +13,11 @@ body {
   font-family: "Roboto", arial, sans-serif;
   color: #fff;
 }
+
+.centered {
+  justify-content: center;
+}
+
 #post-container {
   margin: 2rem;
   height: auto;
@@ -20,6 +25,8 @@ body {
   padding: 20px;
   border-radius: 5px;
   background: #fffffb;
+  display: inline-block;
+  justify-content: center;
   position: relative;
   background-color: #313131;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
@@ -128,4 +135,17 @@ body {
   100% {
     background-position: 100% 50%;
   }
+}
+
+.my-button {
+  font-size: 1rem;
+  color: #fffffb;
+  padding: 10px;
+  width: auto;
+  border: none;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  background: linear-gradient(45deg, #0276aa, #4ec2f7, #4ec2f7, #0276aa);
+  outline: none;
+  transition: all 200ms ease-in-out;
 }
