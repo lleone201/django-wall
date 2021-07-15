@@ -50,7 +50,7 @@ export default class Post extends Component {
           //Then take them back to the main page
           setTimeout(() => {
             this.props.history.push("/");
-          }, 1000);
+          }, 1500);
         })
         .catch((err) => {
           //Log error and display fail alert
@@ -61,7 +61,7 @@ export default class Post extends Component {
           //Then take them back to the main page
           setTimeout(() => {
             this.props.history.push("/");
-          }, 1000);
+          }, 1500);
         });
     }
   };
@@ -92,7 +92,7 @@ export default class Post extends Component {
           <div class="alert alert-success my-success" role="alert" id="success-alert">
             Success! Your post has been created!
           </div>
-          <div class="alert alert-danger my-fail" role="alert">
+          <div class="alert alert-danger my-fail" role="alert" id="fail-alert">
             Error! Your post has not been created.
           </div>
         </form>

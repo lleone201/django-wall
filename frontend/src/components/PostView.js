@@ -25,8 +25,17 @@ export default class Post extends Component {
   }
 
   like = (state) => {
+    //Adds like if you haven't liked it yet, removes like if you have already liked it.
+    if (!this.state.liked) {
+      this.state.post.likes += 1;
+      this.state.liked = true;
+    } else {
+      this.state.post.likes -= 1;
+      this.state.liked = false;
+    }
+
     const postID = this.props.match.params.postID;
-    this.state.post.likes += 1;
+
     axios({
       method: "PUT",
       url: `api/posts/${postID}`,
@@ -45,10 +54,29 @@ export default class Post extends Component {
     const postID = this.props.match.params.postID;
     event.preventDefault();
 
-    axios
-      .delete(`api/posts/${postID}`)
-      .then((res) => console.log(res.data))
-      .catch((err) => console.log(err));
+    if (window.confirm("Are you sure you wish to delete this item?")) {
+      axios
+        .delete(`api/posts/${postID}`)
+        .then((res) => {
+          var succ = document.getElementById("success-alert");
+          succ.style.display = "block";
+          succ.style.opacity = "1";
+          //Then take them back to the main page
+          setTimeout(() => {
+            this.props.history.push("/");
+          }, 1500);
+        })
+        .catch((err) => {
+          console.log(err);
+          var fail = document.getElementById("fail-alert");
+          fail.style.display = "block";
+          fail.style.opacity = "1";
+          //Then take them back to the main page
+          setTimeout(() => {
+            this.props.history.push("/");
+          }, 1500);
+        });
+    }
   };
 
   render() {
@@ -83,6 +111,12 @@ export default class Post extends Component {
           </footer>
         </div>
         <div>{deleteButton}</div>
+        <div class="alert alert-success my-success" role="alert" id="success-alert">
+          Success! Your post has been deleted !
+        </div>
+        <div class="alert alert-danger my-fail" role="alert" id="fail-alert">
+          Error! Your post has not been deleted.
+        </div>
       </div>
     );
   }

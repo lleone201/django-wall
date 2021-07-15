@@ -26,6 +26,7 @@ export const authFail = (error) => {
 export const logout = () => {
   localStorage.removeItem("token");
   localStorage.removeItem("user");
+  localStorage.removeItem("likedPosts");
   localStorage.removeItem("expirationDate");
   return {
     type: actionTypes.AUTH_LOGOUT,
@@ -57,6 +58,8 @@ export const authLogin = (username, password) => {
         const expirationDate = new Date(new Date().getTime() + 3600 * 2000);
         localStorage.setItem("token", token);
         localStorage.setItem("user", username);
+        var likedPosts = [];
+        localStorage.setItem("likedPosts", JSON.stringify(likedPosts));
         //localStorage.setItem("expirationDate", expirationDate);
         dispatch(authSuccess(token));
         //dispatch(checkTimeout(expirationDate));
@@ -84,6 +87,9 @@ export const authRegister = (username, email, password1, password2) => {
         const token = res.data.key;
         //const expirationDate = new Date(new Date().getTime() + 3600 * 2000);
         localStorage.setItem("token", token);
+        localStorage.setItem("user", username);
+        let likedPosts = [];
+        localStorage.setItem("likedPosts", likedPosts);
         //localStorage.setItem("expirationDate", expirationDate);
         dispatch(authSuccess(token));
         //dispatch(checkTimeout(expirationDate));

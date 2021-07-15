@@ -39,7 +39,7 @@ class Login extends Component {
     event.preventDefault();
 
     this.props.onReg(this.state.username, this.state.email, this.state.password1, this.state.password2);
-    document.getElementById("login-form").reset();
+    document.getElementById("reg-form").reset();
   };
 
   handleEmailChange = (event) => {
@@ -63,6 +63,13 @@ class Login extends Component {
   };
 
   render() {
+    if (localStorage.getItem("token")) {
+      return (
+        <div className="login">
+          <h3>Welcome {localStorage.getItem("user")}!</h3>
+        </div>
+      );
+    }
     if (this.state.type === "login") {
       return (
         <form onSubmit={this.handleLoginSubmit} className="login" id="login-form">

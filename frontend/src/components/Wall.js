@@ -9,12 +9,13 @@ export default class Wall extends Component {
     super(props);
     this.state = {
       postList: [],
+      order: "newest",
     };
   }
 
-  componentDidMount() {
+  componentDidMount = () => {
     this.postRefresh();
-  }
+  };
 
   postRefresh = () => {
     axios
@@ -33,9 +34,20 @@ export default class Wall extends Component {
             </div>
             <div className="col-lg-4"></div>
             <div className="col-lg-8 post-section">
-              {this.state.postList.map((post, index) => (
-                <Post key={post.id} id={post.id} title={post.title} content={post.content} likes={post.likes} poster={post.poster}></Post>
-              ))}
+              {this.state.postList
+                .slice(0)
+                .reverse()
+                .map((post, index) => (
+                  <Post
+                    key={post.id}
+                    id={post.id}
+                    title={post.title}
+                    content={post.content}
+                    likes={post.likes}
+                    poster={post.poster}
+                    refresh={this.postRefresh}
+                  ></Post>
+                ))}
             </div>
           </div>
         </div>

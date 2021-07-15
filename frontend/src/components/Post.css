@@ -149,3 +149,17 @@ body {
   outline: none;
   transition: all 200ms ease-in-out;
 }
+
+.link {
+  font-family: "Sriracha", arial, sans-serif;
+  text-align: center;
+  font-size: 25px;
+  margin-bottom: 20px;
+  color: #4ec2f7;
+  transition: all 0.2s linear;
+}
+
+.link:hover {
+  text-decoration: none;
+  color: gray;
+}
