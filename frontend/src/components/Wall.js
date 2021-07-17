@@ -30,7 +30,7 @@ export default class Wall extends Component {
         <div className="fluid-container">
           <div className="row">
             <div id="create-post" className="col-lg-4 login-section">
-              <Login></Login>
+              <Login {...this.props}></Login>
             </div>
             <div className="col-lg-4"></div>
             <div className="col-lg-8 post-section">

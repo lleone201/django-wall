@@ -8,6 +8,7 @@ from rest_framework.mixins import UpdateModelMixin
 
 
 class PostListView(UpdateModelMixin, ListAPIView):
+    template_name = 'success.html'
     queryset = Post.objects.all()
     serializer_class = PostSerializer
 

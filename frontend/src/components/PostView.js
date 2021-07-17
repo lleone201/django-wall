@@ -25,6 +25,15 @@ export default class Post extends Component {
   }
 
   like = (state) => {
+    const postID = this.props.match.params.postID;
+
+    //This was the only way that I could figure out to get the number to update when the post was liked.
+    var temp = JSON.parse(localStorage.getItem("likedPosts"));
+
+    if (!temp) {
+      //If the user is not logged in just don't do anything.
+      return;
+    }
     //Adds like if you haven't liked it yet, removes like if you have already liked it.
     if (!this.state.liked) {
       this.state.post.likes += 1;
@@ -33,8 +42,6 @@ export default class Post extends Component {
       this.state.post.likes -= 1;
       this.state.liked = false;
     }
-
-    const postID = this.props.match.params.postID;
 
     axios({
       method: "PUT",

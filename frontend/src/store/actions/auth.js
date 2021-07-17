@@ -46,6 +46,8 @@ export const checkTimeout = (expirationDate) => {
 export const authLogin = (username, password) => {
   return (dispatch) => {
     dispatch(authStart());
+    console.log(username);
+    console.log(password);
     axios
       .post("rest-auth/login/", {
         username: username,

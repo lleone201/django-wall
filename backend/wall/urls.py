@@ -17,6 +17,8 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
 from wall.views import PostListView, PostDetailView
+from allauth.account.views import confirm_email
+from django.conf.urls import url
 
 
 urlpatterns = [
@@ -25,5 +27,7 @@ urlpatterns = [
     # path('api/', include(router.urls)),
     path('rest-auth/', include('rest_auth.urls')),
     path('rest-auth/registration/', include('rest_auth.registration.urls')),
+    url(r'^rest-auth/registration/account-confirm-email/(?P<key>.+)/$',
+        confirm_email, name='account_confirm_email'),
     path('verification/', include('verify_email.urls')),
 ]

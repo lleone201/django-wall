@@ -40,6 +40,9 @@ class Login extends Component {
 
     this.props.onReg(this.state.username, this.state.email, this.state.password1, this.state.password2);
     document.getElementById("reg-form").reset();
+    setTimeout(() => {
+      this.props.history.push("/verification-sent/");
+    }, 50);
   };
 
   handleEmailChange = (event) => {

@@ -24,6 +24,10 @@ export default class Post extends Component {
     //This was the only way that I could figure out to get the number to update when the post was liked.
     var temp = JSON.parse(localStorage.getItem("likedPosts"));
 
+    if (!temp) {
+      //If the user is not logged in just don't do anything.
+      return;
+    }
     //In the case that it's already been liked, unlike it.
     if (temp.includes(postID)) {
       axios
