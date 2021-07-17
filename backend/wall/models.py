@@ -7,7 +7,7 @@ from django.core.mail import send_mail
 
 
 def my_default():
-    return {'foo': 1}
+    return {'f': 1}
 
 
 class Post(models.Model):
