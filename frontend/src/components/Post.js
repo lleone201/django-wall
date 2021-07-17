@@ -26,6 +26,7 @@ export default class Post extends Component {
 
     if (!temp) {
       //If the user is not logged in just don't do anything.
+      alert("You need to be logged in to like a post!");
       return;
     }
     //In the case that it's already been liked, unlike it.
@@ -80,7 +81,7 @@ export default class Post extends Component {
     }
     setTimeout(() => {
       window.location.reload(false);
-    }, 10);
+    }, 30);
   };
 
   handleExpand = (event) => {

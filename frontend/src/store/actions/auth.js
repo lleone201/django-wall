@@ -57,14 +57,11 @@ export const authLogin = (username, password) => {
         //Have to store the user token in local storage and not the state because the state will
         //go away if the page is refreshed or another page is visited.
         const token = res.data.key;
-        const expirationDate = new Date(new Date().getTime() + 3600 * 2000);
         localStorage.setItem("token", token);
         localStorage.setItem("user", username);
         var likedPosts = [];
         localStorage.setItem("likedPosts", JSON.stringify(likedPosts));
-        //localStorage.setItem("expirationDate", expirationDate);
         dispatch(authSuccess(token));
-        //dispatch(checkTimeout(expirationDate));
       })
       .catch((err) => {
         dispatch(authFail(err));
@@ -87,14 +84,11 @@ export const authRegister = (username, email, password1, password2) => {
         //Have to store the user token in local storage and not the state because the state will
         //go away if the page is refreshed or another page is visited.
         const token = res.data.key;
-        //const expirationDate = new Date(new Date().getTime() + 3600 * 2000);
         localStorage.setItem("token", token);
         localStorage.setItem("user", username);
         let likedPosts = [];
         localStorage.setItem("likedPosts", likedPosts);
-        //localStorage.setItem("expirationDate", expirationDate);
         dispatch(authSuccess(token));
-        //dispatch(checkTimeout(expirationDate));
       })
       .catch((err) => {
         dispatch(authFail(err));

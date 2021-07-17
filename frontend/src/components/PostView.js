@@ -32,16 +32,31 @@ export default class Post extends Component {
 
     if (!temp) {
       //If the user is not logged in just don't do anything.
+      alert("You need to be logged in to like a post!");
       return;
     }
     //Adds like if you haven't liked it yet, removes like if you have already liked it.
-    if (!this.state.liked) {
-      this.state.post.likes += 1;
-      this.state.liked = true;
-    } else {
+    if (temp.includes(parseInt(postID, "10"))) {
+      console.log("INCLUDES");
+
       this.state.post.likes -= 1;
       this.state.liked = false;
+
+      const index = temp.indexOf(postID);
+      temp.splice(index, 1);
+      console.log(temp);
+
+      localStorage.setItem("likedPosts", JSON.stringify(temp));
+    } else {
+      this.state.post.likes += 1;
+      this.state.liked = true;
+
+      temp.push(parseInt(postID, "10"));
+      console.log(temp);
+
+      localStorage.setItem("likedPosts", JSON.stringify(temp));
     }
+    console.log(this.state.post);
 
     axios({
       method: "PUT",
@@ -49,7 +64,7 @@ export default class Post extends Component {
       data: this.state.post,
     })
       .then((response) => {
-        console.log(response.data);
+        //console.log(response.data);
         this.componentDidMount();
       })
       .catch((err) => {
